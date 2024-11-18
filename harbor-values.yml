@@ -9,7 +9,7 @@ expose:
       secretName: harbor-tls
   ingress:
     hosts:
-      core: harbor.demo.waaron.org
+      core: harbor.devsecopsdeployed.com
     kubeVersionOverride: ""
     className: nginx
     annotations:

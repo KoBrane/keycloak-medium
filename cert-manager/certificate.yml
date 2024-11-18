@@ -6,7 +6,7 @@ metadata:
   namespace: harbor
 spec:
   dnsNames:
-    - harbor.demo.waaron.org
+    - harbor.devsecopsdeployed.com
   secretName: harbor-tls
   issuerRef:
     name: letsencrypt-issuer
@@ -21,7 +21,7 @@ metadata:
   namespace: argocd
 spec:
   dnsNames:
-    - argocd.demo.waaron.org
+    - argocd.devsecopsdeployed.com
   secretName: argocd-tls
   issuerRef:
     name: letsencrypt-issuer
@@ -36,7 +36,7 @@ metadata:
   namespace: keycloak
 spec:
   dnsNames:
-    - keycloak.demo.waaron.org
+    - keycloak.devsecopsdeployed.com
   secretName: keycloak-tls
   issuerRef:
     name: letsencrypt-issuer
