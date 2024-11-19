@@ -31,12 +31,13 @@ aws eks update-kubeconfig --region us-east-1 --name realworld-cluster
 #### Install Nginx Ingress
 kubectl apply -f ingress-nginx.yml
 #### Install Cert Manager
-```helm repo add jetstack https://charts.jetstack.io --force-update```
-```helm install cert-manager jetstack/cert-manager \
+```helm repo add jetstack https://charts.jetstack.io --force-update
+helm install cert-manager jetstack/cert-manager \
   --namespace cert-manager \
   --create-namespace \
   --version v1.15.2 \
-  --set crds.enabled=true```
+  --set crds.enabled=true
+  ```
 #### Create Namespaces and Certificates
 kubectl apply -f cert-manager/namespace.yml
 kubectl apply -f cert-manager/certificate.yml
@@ -115,13 +116,14 @@ terraform destroy --auto-approve
 - Password: Harbor12345
 
 ## Repository Structure
-.
+```.
 ├── kubernetes-cluster/     # Terraform configuration files
 ├── cert-manager/          # Certificate configuration
 ├── argocd-values.yml      # ArgoCD Helm values
 ├── harbor-values.yml      # Harbor Helm values
 ├── keycloak-values.yml    # Keycloak Helm values
 └── ingress-nginx.yml      # Nginx ingress configuration
+```
 ## Contributing
 Feel free to submit issues and enhancement requests.
 
