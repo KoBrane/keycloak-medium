@@ -29,7 +29,9 @@ aws eks update-kubeconfig --region us-east-1 --name realworld-cluster
 ### 2. Infrastructure Setup
 
 #### Install Nginx Ingress
+```
 kubectl apply -f ingress-nginx.yml
+```
 #### Install Cert Manager
 ```helm repo add jetstack https://charts.jetstack.io --force-update
 helm install cert-manager jetstack/cert-manager \
