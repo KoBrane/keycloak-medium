@@ -31,12 +31,12 @@ aws eks update-kubeconfig --region us-east-1 --name realworld-cluster
 #### Install Nginx Ingress
 kubectl apply -f ingress-nginx.yml
 #### Install Cert Manager
-helm repo add jetstack https://charts.jetstack.io --force-update
-`helm install cert-manager jetstack/cert-manager \
+```helm repo add jetstack https://charts.jetstack.io --force-update```
+```helm install cert-manager jetstack/cert-manager \
   --namespace cert-manager \
   --create-namespace \
   --version v1.15.2 \
-  --set crds.enabled=true`
+  --set crds.enabled=true```
 #### Create Namespaces and Certificates
 kubectl apply -f cert-manager/namespace.yml
 kubectl apply -f cert-manager/certificate.yml
