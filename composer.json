@@ -1,0 +1,10 @@
+{
+    "name": "keycloak/medium",
+    "description": "Keycloak Medium Project",
+    "type": "project",
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.2",
+        "monolog/monolog": "^3.0"
+    }
+}
