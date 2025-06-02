@@ -1,26 +1,32 @@
-snyk:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
+name: Snyk PHP Vulnerability Scan
 
-    - name: Set up PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.2'
+on:
+  pull_request
 
-    - name: Install dependencies
-      runs: composer install --no-interaction --no-progress --prefer-dist
+jobs: 
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-    - name: Install Snyk CLI
-      run: npm install -g snyk
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
 
-    - name: Run Snyk to check for vulnerabilities and output SARIF
-      continue-on-error: true
-      env:
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      run: snyk test --sarif-file-output=snyk.sarif
+      - name: Install dependencies
+        runs: composer install --no-interaction --no-progress --prefer-dist
 
-    - name: Upload Snyk SARIF results to GitHub Code Scanning
-      uses: github/codeql-action/upload-sarif@v3
-      with:
-        sarif_file: snyk.sarif
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
+      - name: Run Snyk to check for vulnerabilities and output SARIF
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: snyk test --sarif-file-output=snyk.sarif
+
+      - name: Upload Snyk SARIF results to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: snyk.sarif
