@@ -178,3 +178,6 @@ Feel free to submit issues and enhancement requests.
 
 ## License
 [License information
+
+## Lovely Day
+We love what we do 
